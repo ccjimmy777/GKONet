@@ -55,7 +55,7 @@ def parse_args(is_3dhp=False):
     parser.add_argument('--subjects-train', default='S1,S5,S6,S7,S8', type=str, help='training subjects separated by comma')
     parser.add_argument('--subjects-test', default='S9,S11', type=str, help='test subjects separated by comma')
     parser.add_argument('--actions', default='*', type=str, help='actions to train/test on, separated by comma, or * for all')
-    parser.add_argument('-g', '--gpu', default=6, type=int, help='gpu id')
+    parser.add_argument('-g', '--gpu', default=0, type=int, help='gpu id')
     parser.add_argument('-exp', '--experiment', default='test', type=str, help='experiment name')
 
     # Model arguments

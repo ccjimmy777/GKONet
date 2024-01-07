@@ -61,7 +61,7 @@ class Fusion(data.Dataset):
         return cam, gt_3D[0], input_2D[0], joint_vector_3d, joint_vector_2d, action
 
 def get_data(args, logger):
-    dataset_path = 'data/data_3d_' + args.dataset + '.npz'
+    dataset_path = '/mnt/data/data_3d_' + args.dataset + '.npz'  # 需满足 aliyun 的文件系统
     logger.info(f"Load 3d data: {dataset_path}")
 
     if args.dataset == 'h36m':
@@ -81,8 +81,8 @@ def get_data(args, logger):
                     positions_3d.append(pos_3d)
                 anim['positions_3d'] = positions_3d
 
-    keypoints = np.load('data/data_2d_' + args.dataset + '_' + args.keypoints + '.npz', allow_pickle=True)
-    logger.info(f"Load 3d data: " + 'data/data_2d_' + args.dataset + '_' + args.keypoints + '.npz')
+    keypoints = np.load('/mnt/data/data_2d_' + args.dataset + '_' + args.keypoints + '.npz', allow_pickle=True)
+    logger.info(f"Load 3d data: " + '/mnt/data/data_2d_' + args.dataset + '_' + args.keypoints + '.npz')
     keypoints_metadata = keypoints['metadata'].item()
     keypoints_symmetry = keypoints_metadata['keypoints_symmetry']
     kps_left, kps_right = list(keypoints_symmetry[0]), list(keypoints_symmetry[1])
